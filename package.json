@@ -1,4 +1,24 @@
 {
   "name": "server",
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.0.2",
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@types/pg": "^8.11.0",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "tsc": "^2.0.4",
+    "typescript": "^5.3.3"
+  },
+  "scripts": {
+    "start": "nodemon -w src --ext ts --exec ts-node -r tsconfig-paths/register src/index.ts"
+  },
+  "dependencies": {
+    "apollo-server": "^3.13.0",
+    "graphql": "^15.3.0",
+    "pg": "^8.11.3",
+    "reflect-metadata": "^0.2.1",
+    "tsconfig-paths": "^4.2.0",
+    "type-graphql": "^1.1.1",
+    "typeorm": "^0.3.20"
+  }
 }
