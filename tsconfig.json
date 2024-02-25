@@ -32,7 +32,14 @@
     // "moduleResolution": "node10",                     /* Specify how TypeScript looks up a file from a given module specifier. */
     "baseUrl": "." /* Specify the base directory to resolve non-relative module names. */,
     "paths": {
-      "@typeORM/*": ["src/typeORM/*"]
+      "@typeORM/*": ["src/typeORM/*"],
+      "@entities/*": ["src/entities/*"],
+      "@scalars/*": ["src/graphQL/scalars/*"],
+      "@enums/*": ["src/graphQL/enums/*"],
+      "@services/*": ["src/services/*"],
+      "@repositories/*": ["src/repositories/*"],
+      "@resolvers/*": ["src/graphQL/resolvers/*"],
+      "@inputs/*": ["src/graphQL/inputs/*"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */

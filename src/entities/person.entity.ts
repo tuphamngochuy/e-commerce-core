@@ -1,0 +1,58 @@
+import BaseEntity from '@entities/base.entity';
+import { User } from '@entities/user.entity';
+import { BiologicalSex, MaritalStatus } from '@enums/person';
+import { Field, ObjectType } from 'type-graphql';
+import { Column, Entity, OneToOne } from 'typeorm';
+
+@ObjectType()
+@Entity({
+  name: 'person',
+})
+export class Person extends BaseEntity {
+  @Field(() => String)
+  @Column('text', { name: 'full_name' })
+  declare fullName: string;
+
+  @Field(() => String)
+  @Column('text', { nullable: true, name: 'email' })
+  declare email?: string;
+
+  @Field(() => String)
+  @Column('text', { nullable: true, name: 'phone_number' })
+  declare phoneNumber?: string;
+
+  @Field(() => BiologicalSex)
+  @Column('enum', { nullable: true, name: 'gender', enum: BiologicalSex })
+  declare gender?: BiologicalSex;
+
+  @Field(() => Date)
+  @Column('date', {
+    nullable: true,
+    name: 'date_of_birth',
+  })
+  declare dateOfBirth?: Date;
+
+  @Field(() => String)
+  @Column('text', { nullable: true, name: 'place_of_births' })
+  declare placeOfBirth?: string;
+
+  @Field(() => String)
+  @Column('text', { nullable: true, name: 'address' })
+  declare address?: string;
+
+  @Field(() => MaritalStatus)
+  @Column('enum', {
+    nullable: true,
+    name: 'marital_status',
+    enum: MaritalStatus,
+  })
+  declare maritalStatus?: MaritalStatus;
+
+  @Field(() => Boolean)
+  @Column('boolean', { default: false, name: 'is_verified' })
+  declare isVerified: boolean;
+
+  @Field(() => User)
+  @OneToOne(() => User, (user) => user.person)
+  declare user?: User;
+}
