@@ -14,14 +14,18 @@ export class UserAlias extends BaseEntity {
 
   @Field(() => Boolean)
   @Column('boolean', { default: false, name: 'is_active' })
-  declare isActive: string;
+  declare isActive: boolean;
 
   @Field(() => Boolean)
   @Column('boolean', { default: false, name: 'is_verified' })
-  declare isVerified: string;
+  declare isVerified: boolean;
 
   @Field(() => User)
   @ManyToOne(() => User, (user) => user.userAliases)
   @JoinColumn({ name: 'user_id' })
   declare user: User;
+
+  @Field(() => Boolean)
+  @Column('boolean', { default: false, name: 'need_two_factor' })
+  declare needTwoFactor: boolean;
 }

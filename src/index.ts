@@ -14,6 +14,7 @@ const main = async () => {
 
     const schema = await buildSchema({
       resolvers,
+      validate: { forbidUnknownValues: false },
     });
 
     console.log('Schema has been built');

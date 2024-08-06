@@ -1,6 +1,6 @@
 import { Field, InputType } from 'type-graphql';
 
-@InputType({ description: 'Sign up input' })
+@InputType()
 export class SignUpInput {
   @Field(() => String)
   declare username: string;
