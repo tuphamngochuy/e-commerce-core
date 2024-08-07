@@ -1,4 +1,4 @@
-import UserResolver from 'src/graphQL/resolvers/user';
+import UserResolver from '@user/graphql/resolver';
 
 const resolvers = [...UserResolver] as const;
 

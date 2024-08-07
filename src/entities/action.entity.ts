@@ -1,4 +1,4 @@
-import BaseEntity from '@entities/base.entity';
+import BaseUniqueNameEntity from '@entities/baseUniqueName.entity';
 import { Permission } from '@entities/permission.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, OneToMany } from 'typeorm';
@@ -7,16 +7,12 @@ import { Column, Entity, OneToMany } from 'typeorm';
 @Entity({
   name: 'action',
 })
-export class Action extends BaseEntity {
-  @Field(() => String)
-  @Column('text', { name: 'name' })
-  declare name: string;
-
+export class Action extends BaseUniqueNameEntity {
   @Field(() => Boolean)
   @Column('boolean', { name: 'is_active', default: false })
   declare isActive: boolean;
 
   @Field(() => [Permission])
-  @OneToMany(() => Permission, (permission) => permission.action)
+  @OneToMany(() => Permission, permission => permission.action)
   declare permissions: Permission[];
 }

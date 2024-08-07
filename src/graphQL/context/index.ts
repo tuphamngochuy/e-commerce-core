@@ -1,11 +1,11 @@
-import { ExpressContext } from 'apollo-server-express';
-import { randomUUID } from 'crypto';
 import { Context } from 'src/graphQL/context/type';
 
-const createContext = ({ req }: ExpressContext): Context => {
-  return {
-    requestId: randomUUID(),
-  };
-};
+let _context: Context;
 
-export default createContext;
+export function getCurrentContext(): Context {
+  return _context;
+}
+
+export function setCurrentContext(context: Context): void {
+  _context = context;
+}

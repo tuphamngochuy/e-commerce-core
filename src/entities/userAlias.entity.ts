@@ -21,11 +21,7 @@ export class UserAlias extends BaseEntity {
   declare isVerified: boolean;
 
   @Field(() => User)
-  @ManyToOne(() => User, (user) => user.userAliases)
+  @ManyToOne(() => User, user => user.userAliases)
   @JoinColumn({ name: 'user_id' })
   declare user: User;
-
-  @Field(() => Boolean)
-  @Column('boolean', { default: false, name: 'need_two_factor' })
-  declare needTwoFactor: boolean;
 }

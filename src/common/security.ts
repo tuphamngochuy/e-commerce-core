@@ -9,8 +9,12 @@ class Security {
     saltLength?: number;
   }) {
     const salt = await bcrypt.genSalt(saltLength);
+    const password = await bcrypt.hash(rawPassword, salt);
 
-    return bcrypt.hash(rawPassword, salt);
+    return {
+      password,
+      salt,
+    };
   }
 }
 

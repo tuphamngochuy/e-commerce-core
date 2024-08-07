@@ -1,16 +1,16 @@
-import { SignUpInput } from '@inputs/signUpInput';
-import { userService } from '@services/user';
+import { SignUpInput } from '@user/graphql/inputs/signUpInput';
+import SignUpOutput from '@user/graphql/outputs/signUpOutput';
+import { userService } from '@user/service';
 import { Context } from 'src/graphQL/context/type';
-import SignUpOutput from 'src/graphQL/outputs/signUpOutput';
 import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 
 @Resolver()
 export class UserMutationResolver {
   @Mutation(() => SignUpOutput)
   async signUp(
-    @Arg('payload', (type) => SignUpInput)
+    @Arg('payload', () => SignUpInput)
     payload: SignUpInput,
-    @Ctx() context: Context
+    @Ctx() context: Context,
   ): Promise<SignUpOutput> {
     return userService.signUp({ input: payload, context });
   }

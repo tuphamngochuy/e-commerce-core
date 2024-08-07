@@ -1,3 +1,4 @@
+import { SystemRoleType } from '@enums/role';
 import { Field, InputType } from 'type-graphql';
 
 @InputType()
@@ -11,6 +12,6 @@ export class SignUpInput {
   @Field(() => String)
   declare fullName: string;
 
-  @Field(() => Boolean, { nullable: true, defaultValue: false })
-  declare needVerification: boolean;
+  @Field(() => SystemRoleType)
+  declare systemRole: SystemRoleType;
 }

@@ -1,38 +1,39 @@
-import BaseEntity from '@entities/base.entity';
+import BaseUniqueNameEntity from '@entities/baseUniqueName.entity';
 import { Role } from '@entities/role.entity';
+import { Shop } from '@entities/shop.entity';
 import { UserInWorkgroup } from '@entities/userInWorkgroup.entity';
 import { Field, ObjectType } from 'type-graphql';
-import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany, OneToOne } from 'typeorm';
 
 @ObjectType()
 @Entity({
   name: 'workgroup',
 })
-export class Workgroup extends BaseEntity {
-  @Field(() => String)
-  @Column('text', { unique: true, name: 'name' })
-  declare name: string;
-
+export class Workgroup extends BaseUniqueNameEntity {
   @Field(() => Boolean)
   @Column('boolean', { name: 'is_active', default: false })
   declare isActive: boolean;
 
   @Field(() => Workgroup)
-  @ManyToOne(() => Workgroup, (parent) => parent.children)
+  @ManyToOne(() => Workgroup, parent => parent.children)
   declare parent?: Workgroup;
 
   @Field(() => [Workgroup])
-  @OneToMany(() => Workgroup, (children) => children.parent)
+  @OneToMany(() => Workgroup, children => children.parent)
   declare children?: Workgroup[];
 
   @Field(() => [Role])
-  @OneToMany(() => Role, (role) => role.workgroup)
+  @OneToMany(() => Role, role => role.workgroup)
   declare roles?: Role[];
 
   @Field(() => [UserInWorkgroup])
   @OneToMany(
     () => UserInWorkgroup,
-    (userInWorkgroup) => userInWorkgroup.workgroup
+    userInWorkgroup => userInWorkgroup.workgroup,
   )
   declare userInWorkgroups: UserInWorkgroup[];
+
+  @Field(() => Shop)
+  @OneToOne(() => Shop, shop => shop.workgroup)
+  declare shop?: Shop;
 }

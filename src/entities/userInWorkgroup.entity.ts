@@ -14,22 +14,30 @@ export class UserInWorkgroup extends BaseEntity {
   @Column('boolean', { name: 'is_owner', default: false })
   declare isOwner: boolean;
 
+  @Field(() => Boolean)
+  @Column('boolean', { name: 'is_verified', default: false })
+  declare isVerified: boolean;
+
+  @Field(() => Boolean)
+  @Column('boolean', { name: 'is_active', default: false })
+  declare isActive: boolean;
+
   @Field(() => User)
-  @ManyToOne(() => User, (user) => user.userInWorkgroups)
+  @ManyToOne(() => User, user => user.userInWorkgroups)
   @JoinColumn({
     name: 'user_id',
   })
   declare user: User;
 
   @Field(() => Workgroup)
-  @ManyToOne(() => Workgroup, (workgroup) => workgroup.userInWorkgroups)
+  @ManyToOne(() => Workgroup, workgroup => workgroup.userInWorkgroups)
   @JoinColumn({
     name: 'workgroup_id',
   })
   declare workgroup: Workgroup;
 
   @Field(() => Role)
-  @ManyToOne(() => Role, (role) => role.userInWorkgroups)
+  @ManyToOne(() => Role, role => role.userInWorkgroups)
   @JoinColumn({
     name: 'role_id',
   })
