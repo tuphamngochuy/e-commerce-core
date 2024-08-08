@@ -2,9 +2,13 @@ import BaseEntity from '@entities/base.entity';
 import { Cart } from '@entities/cart.entity';
 import { PaymentMethod } from '@enums/common';
 import { InvoiceStatus } from '@enums/status';
-import { Field } from 'type-graphql';
-import { Column, JoinColumn, OneToOne } from 'typeorm';
+import { Field, ObjectType } from 'type-graphql';
+import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
 
+@ObjectType()
+@Entity({
+  name: 'invoice',
+})
 export class Invoice extends BaseEntity {
   @Field(() => InvoiceStatus)
   @Column('enum', {
@@ -15,7 +19,7 @@ export class Invoice extends BaseEntity {
   declare status: InvoiceStatus;
 
   @Field(() => Number)
-  @Column('double', {
+  @Column('float', {
     name: 'amount',
     default: 0,
   })

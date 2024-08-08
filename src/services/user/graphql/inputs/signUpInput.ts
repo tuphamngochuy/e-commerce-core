@@ -12,6 +12,6 @@ export class SignUpInput {
   @Field(() => String)
   declare fullName: string;
 
-  @Field(() => SystemRoleType)
-  declare systemRole: SystemRoleType;
+  @Field(() => SystemRoleType, { nullable: true })
+  declare systemRole?: SystemRoleType;
 }

@@ -3,9 +3,20 @@ import { Invoice } from '@entities/invoice.entity';
 import { Item } from '@entities/item.entity';
 import { User } from '@entities/user.entity';
 import { CartStatus } from '@enums/status';
-import { Field } from 'type-graphql';
-import { Column, JoinColumn, ManyToOne, OneToMany, OneToOne } from 'typeorm';
+import { Field, ObjectType } from 'type-graphql';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+} from 'typeorm';
 
+@ObjectType()
+@Entity({
+  name: 'cart',
+})
 export class Cart extends BaseEntity {
   @Field(() => CartStatus)
   @Column('enum', {

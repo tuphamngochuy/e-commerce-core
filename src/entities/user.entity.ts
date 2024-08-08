@@ -7,6 +7,9 @@ import { UserInWorkgroup } from '@entities/userInWorkgroup.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 
+export type TUserOutput = Pick<User, keyof User>;
+export type TUserInput = Omit<User, 'createdAt' | 'updatedAt'>;
+
 @ObjectType()
 @Entity({
   name: 'user',

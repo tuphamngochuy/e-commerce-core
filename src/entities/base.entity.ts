@@ -26,8 +26,8 @@ abstract class BaseEntity {
   @CreateDateColumn({ type: 'timestamp with time zone', name: 'created_at' })
   declare createdAt: Date;
 
-  @Field(() => UUIDScalar)
-  @Column('uuid', { name: 'created_by' })
+  @Field(() => UUIDScalar, { nullable: true })
+  @Column('uuid', { name: 'created_by', nullable: true })
   declare createdBy?: UUID;
 
   @Field(() => Date, { nullable: true })
@@ -35,15 +35,19 @@ abstract class BaseEntity {
   declare updatedAt?: Date;
 
   @Field(() => UUIDScalar, { nullable: true })
-  @Column('uuid', { name: 'updated_by' })
+  @Column('uuid', { name: 'updated_by', nullable: true })
   declare updatedBy?: UUID;
 
-  @Field(() => Date)
-  @DeleteDateColumn({ type: 'timestamp with time zone', name: 'deleted_at' })
+  @Field(() => Date, { nullable: true })
+  @DeleteDateColumn({
+    type: 'timestamp with time zone',
+    name: 'deleted_at',
+    nullable: true,
+  })
   declare deletedAt: Date;
 
-  @Field(() => UUIDScalar)
-  @Column('uuid', { name: 'deleted_by' })
+  @Field(() => UUIDScalar, { nullable: true })
+  @Column('uuid', { name: 'deleted_by', nullable: true })
   declare deletedBy?: UUID;
 
   @BeforeInsert()

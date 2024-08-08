@@ -1,8 +1,11 @@
 import BaseEntity from '@entities/base.entity';
 import { User } from '@entities/user.entity';
-import { BiologicalSex, MaritalStatus } from '@enums/person';
+import { BiologicalSex } from '@enums/person';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, OneToOne } from 'typeorm';
+
+export type TPersonOutput = Pick<Person, keyof Person>;
+export type TPersonInput = Omit<Person, 'createdAt' | 'updatedAt'>;
 
 @ObjectType()
 @Entity({
@@ -40,19 +43,7 @@ export class Person extends BaseEntity {
   @Column('text', { nullable: true, name: 'address' })
   declare address?: string;
 
-  @Field(() => MaritalStatus)
-  @Column('enum', {
-    nullable: true,
-    name: 'marital_status',
-    enum: MaritalStatus,
-  })
-  declare maritalStatus?: MaritalStatus;
-
-  @Field(() => Boolean)
-  @Column('boolean', { default: false, name: 'is_verified' })
-  declare isVerified: boolean;
-
   @Field(() => User)
-  @OneToOne(() => User, (user) => user.person)
+  @OneToOne(() => User, user => user.person)
   declare user?: User;
 }

@@ -1,9 +1,13 @@
 import BaseUniqueNameEntity from '@entities/baseUniqueName.entity';
 import { Product } from '@entities/product.entity';
 import { Shop } from '@entities/shop.entity';
-import { Field } from 'type-graphql';
-import { Column, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Field, ObjectType } from 'type-graphql';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
+@ObjectType()
+@Entity({
+  name: 'category',
+})
 export class Category extends BaseUniqueNameEntity {
   @Field(() => Boolean)
   @Column('boolean', { name: 'is_active', default: false })

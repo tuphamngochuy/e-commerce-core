@@ -2,9 +2,13 @@ import BaseEntity from '@entities/base.entity';
 import { Category } from '@entities/category.entity';
 import { Item } from '@entities/item.entity';
 import { Shop } from '@entities/shop.entity';
-import { Field } from 'type-graphql';
-import { Column, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Field, ObjectType } from 'type-graphql';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
+@ObjectType()
+@Entity({
+  name: 'product',
+})
 export class Product extends BaseEntity {
   @Field(() => String)
   @Column('text', { name: 'name' })
@@ -15,7 +19,7 @@ export class Product extends BaseEntity {
   declare quantity: number;
 
   @Field(() => Number)
-  @Column('double', { name: 'price', default: 0 })
+  @Column('float', { name: 'price', default: 0 })
   declare price: number;
 
   @Field(() => Shop)

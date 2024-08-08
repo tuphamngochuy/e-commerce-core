@@ -6,10 +6,11 @@ export enum SystemRoleType {
   SELLER = 'SELLER',
 }
 
+registerEnumType(SystemRoleType, { name: 'SystemRoleType' });
+
 export enum WorkgroupType {
   SELLER = 'SELLER',
   ADMIN = 'ADMIN',
 }
 
-registerEnumType(SystemRoleType, { name: 'SystemRoleType' });
 registerEnumType(WorkgroupType, { name: 'WorkgroupType' });

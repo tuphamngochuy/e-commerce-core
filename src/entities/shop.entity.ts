@@ -2,9 +2,13 @@ import BaseEntity from '@entities/base.entity';
 import { Category } from '@entities/category.entity';
 import { Product } from '@entities/product.entity';
 import { Workgroup } from '@entities/workgroup.entity';
-import { Field } from 'type-graphql';
-import { Column, JoinColumn, OneToMany, OneToOne } from 'typeorm';
+import { Field, ObjectType } from 'type-graphql';
+import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 
+@ObjectType()
+@Entity({
+  name: 'shop',
+})
 export class Shop extends BaseEntity {
   @Field(() => String)
   @Column('text', { name: 'name' })

@@ -1,9 +1,13 @@
 import BaseEntity from '@entities/base.entity';
 import { Cart } from '@entities/cart.entity';
 import { Product } from '@entities/product.entity';
-import { Field } from 'type-graphql';
-import { Column, JoinColumn, ManyToOne } from 'typeorm';
+import { Field, ObjectType } from 'type-graphql';
+import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
+@ObjectType()
+@Entity({
+  name: 'item',
+})
 export class Item extends BaseEntity {
   @Field(() => Number)
   @Column('int', {
