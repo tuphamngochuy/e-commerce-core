@@ -40,7 +40,9 @@
       "@repositories/*": ["src/repositories/*"],
       "@resolvers/*": ["src/graphQL/resolvers/*"],
       "@common/*": ["src/common/*"],
-      "@user/*": ["src/services/user/*"]
+      "@user/*": ["src/services/user/*"],
+      "@person/*": ["src/services/person/*"],
+      "@type/*": ["src/type/*"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */

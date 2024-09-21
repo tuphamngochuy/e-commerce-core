@@ -5,9 +5,11 @@ import { CreatePersonDto } from '@repositories/person/dto/createPerson.dto';
 import { personRepository } from '@repositories/person/person.repository';
 import { CreateUserDto } from '@repositories/user/dto/createUser.dto';
 import { userRepository } from '@repositories/user/user.repository';
+import { ListInput } from '@services/common/input/listInput';
 import { SignUpInput } from '@services/user/graphql/inputs/signUpInput';
 import dataSource from '@typeORM/dataSource';
 import { isNil } from 'lodash';
+import { ListDto } from 'src/dto/common/list.dto';
 import { UserDto } from 'src/dto/user.dto';
 import { Context } from 'src/graphQL/context/type';
 
@@ -63,6 +65,10 @@ class UserService {
     });
 
     return {};
+  }
+
+  async getUsers({ payload }: { payload: ListInput; context: Context }) {
+    return userRepository.getUsers({ input: ListDto.toListParam(payload) });
   }
 }
 
