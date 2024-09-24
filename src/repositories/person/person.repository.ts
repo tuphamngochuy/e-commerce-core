@@ -1,4 +1,4 @@
-import { Person } from '@entities/person.entity';
+import { Person } from '@entities/actualEntities/person.entity';
 import { TCreatePersonDto } from '@repositories/person/dto/createPerson.dto';
 import dataSource from '@typeORM/dataSource';
 import { Repository } from 'typeorm';

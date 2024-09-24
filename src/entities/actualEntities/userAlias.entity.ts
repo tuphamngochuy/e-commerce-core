@@ -1,5 +1,5 @@
+import { User } from '@entities/actualEntities/user.entity';
 import BaseEntity from '@entities/base.entity';
-import { User } from '@entities/user.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 

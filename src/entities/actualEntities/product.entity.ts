@@ -1,7 +1,7 @@
+import { Category } from '@entities/actualEntities/category.entity';
+import { Item } from '@entities/actualEntities/item.entity';
+import { Shop } from '@entities/actualEntities/shop.entity';
 import BaseEntity from '@entities/base.entity';
-import { Category } from '@entities/category.entity';
-import { Item } from '@entities/item.entity';
-import { Shop } from '@entities/shop.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 

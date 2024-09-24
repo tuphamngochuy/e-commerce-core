@@ -1,6 +1,6 @@
-import { Action } from '@entities/action.entity';
+import { Action } from '@entities/actualEntities/action.entity';
+import { Role } from '@entities/actualEntities/role.entity';
 import BaseEntity from '@entities/base.entity';
-import { Role } from '@entities/role.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Entity, JoinColumn, ManyToOne } from 'typeorm';
 

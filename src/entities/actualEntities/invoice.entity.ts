@@ -1,5 +1,5 @@
+import { Cart } from '@entities/actualEntities/cart.entity';
 import BaseEntity from '@entities/base.entity';
-import { Cart } from '@entities/cart.entity';
 import { PaymentMethod } from '@enums/common';
 import { InvoiceStatus } from '@enums/status';
 import { Field, ObjectType } from 'type-graphql';

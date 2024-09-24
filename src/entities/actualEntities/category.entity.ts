@@ -1,6 +1,6 @@
+import { Product } from '@entities/actualEntities/product.entity';
+import { Shop } from '@entities/actualEntities/shop.entity';
 import BaseUniqueNameEntity from '@entities/baseUniqueName.entity';
-import { Product } from '@entities/product.entity';
-import { Shop } from '@entities/shop.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 

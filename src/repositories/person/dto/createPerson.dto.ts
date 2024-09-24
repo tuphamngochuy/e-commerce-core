@@ -1,5 +1,5 @@
 import Yup from '@common/yup.custom';
-import { TPersonInput } from '@entities/person.entity';
+import { TPersonInput } from '@entities/actualEntities/person.entity';
 
 const { object, string } = Yup;
 

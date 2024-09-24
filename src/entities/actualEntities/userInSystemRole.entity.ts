@@ -1,6 +1,6 @@
+import { SystemRole } from '@entities/actualEntities/systemRole.entity';
+import { User } from '@entities/actualEntities/user.entity';
 import BaseEntity from '@entities/base.entity';
-import { SystemRole } from '@entities/systemRole.entity';
-import { User } from '@entities/user.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Entity, JoinColumn, ManyToOne } from 'typeorm';
 

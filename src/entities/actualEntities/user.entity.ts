@@ -1,9 +1,9 @@
+import { Cart } from '@entities/actualEntities/cart.entity';
+import { Person } from '@entities/actualEntities/person.entity';
+import { UserAlias } from '@entities/actualEntities/userAlias.entity';
+import { UserInSystemRole } from '@entities/actualEntities/userInSystemRole.entity';
+import { UserInWorkgroup } from '@entities/actualEntities/userInWorkgroup.entity';
 import BaseEntity from '@entities/base.entity';
-import { Cart } from '@entities/cart.entity';
-import { Person } from '@entities/person.entity';
-import { UserAlias } from '@entities/userAlias.entity';
-import { UserInSystemRole } from '@entities/userInSystemRole.entity';
-import { UserInWorkgroup } from '@entities/userInWorkgroup.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 

@@ -1,7 +1,7 @@
+import { Permission } from '@entities/actualEntities/permission.entity';
+import { UserInWorkgroup } from '@entities/actualEntities/userInWorkgroup.entity';
+import { Workgroup } from '@entities/actualEntities/workgroup.entity';
 import BaseEntity from '@entities/base.entity';
-import { Permission } from '@entities/permission.entity';
-import { UserInWorkgroup } from '@entities/userInWorkgroup.entity';
-import { Workgroup } from '@entities/workgroup.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 

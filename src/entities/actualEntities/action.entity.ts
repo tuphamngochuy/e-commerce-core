@@ -1,5 +1,5 @@
+import { Permission } from '@entities/actualEntities/permission.entity';
 import BaseUniqueNameEntity from '@entities/baseUniqueName.entity';
-import { Permission } from '@entities/permission.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, OneToMany } from 'typeorm';
 

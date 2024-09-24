@@ -1,5 +1,5 @@
-import { TPersonInput } from '@entities/person.entity';
-import { TUserInput } from '@entities/user.entity';
+import { TPersonInput } from '@entities/actualEntities/person.entity';
+import { TUserInput } from '@entities/actualEntities/user.entity';
 import * as Yup from 'yup';
 
 export interface ICreateUserWithMinimumData

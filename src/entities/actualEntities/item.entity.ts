@@ -1,6 +1,6 @@
+import { Cart } from '@entities/actualEntities/cart.entity';
+import { Product } from '@entities/actualEntities/product.entity';
 import BaseEntity from '@entities/base.entity';
-import { Cart } from '@entities/cart.entity';
-import { Product } from '@entities/product.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 

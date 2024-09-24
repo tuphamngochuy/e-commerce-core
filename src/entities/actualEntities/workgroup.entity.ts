@@ -1,7 +1,7 @@
+import { Role } from '@entities/actualEntities/role.entity';
+import { Shop } from '@entities/actualEntities/shop.entity';
+import { UserInWorkgroup } from '@entities/actualEntities/userInWorkgroup.entity';
 import BaseUniqueNameEntity from '@entities/baseUniqueName.entity';
-import { Role } from '@entities/role.entity';
-import { Shop } from '@entities/shop.entity';
-import { UserInWorkgroup } from '@entities/userInWorkgroup.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, ManyToOne, OneToMany, OneToOne } from 'typeorm';
 

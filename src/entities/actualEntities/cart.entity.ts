@@ -1,7 +1,7 @@
+import { Invoice } from '@entities/actualEntities/invoice.entity';
+import { Item } from '@entities/actualEntities/item.entity';
+import { User } from '@entities/actualEntities/user.entity';
 import BaseEntity from '@entities/base.entity';
-import { Invoice } from '@entities/invoice.entity';
-import { Item } from '@entities/item.entity';
-import { User } from '@entities/user.entity';
 import { CartStatus } from '@enums/status';
 import { Field, ObjectType } from 'type-graphql';
 import {
