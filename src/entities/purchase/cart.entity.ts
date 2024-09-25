@@ -1,7 +1,7 @@
-import { Invoice } from '@entities/actualEntities/invoice.entity';
-import { Item } from '@entities/actualEntities/item.entity';
-import { User } from '@entities/actualEntities/user.entity';
 import BaseEntity from '@entities/base.entity';
+import { User } from '@entities/identity/user.entity';
+import { Invoice } from '@entities/purchase/invoice.entity';
+import { Item } from '@entities/purchase/item.entity';
 import { CartStatus } from '@enums/status';
 import { Field, ObjectType } from 'type-graphql';
 import {
@@ -16,6 +16,7 @@ import {
 @ObjectType()
 @Entity({
   name: 'cart',
+  schema: 'purchase',
 })
 export class Cart extends BaseEntity {
   @Field(() => CartStatus)

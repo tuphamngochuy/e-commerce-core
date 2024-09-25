@@ -1,5 +1,5 @@
-import { User } from '@entities/actualEntities/user.entity';
 import BaseEntity from '@entities/base.entity';
+import { User } from '@entities/identity/user.entity';
 import { BiologicalSex } from '@enums/person';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, OneToOne } from 'typeorm';
@@ -10,6 +10,7 @@ export type TPersonInput = Omit<Person, 'createdAt' | 'updatedAt'>;
 @ObjectType()
 @Entity({
   name: 'person',
+  schema: 'identity',
 })
 export class Person extends BaseEntity {
   @Field(() => String)

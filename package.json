@@ -13,7 +13,9 @@
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "start": "nodemon -w src --ext ts --exec ts-node -r tsconfig-paths/register src/index.ts"
+    "start": "nodemon -w src --ext ts --exec ts-node -r tsconfig-paths/register src/index.ts",
+    "db:migrate": "npx typeorm-ts-node-commonjs migration:run -d ./src/typeORM/dataSource.ts",
+    "db:migrate:create": "typeorm migration:create"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^8.0.1",

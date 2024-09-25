@@ -1,12 +1,13 @@
-import { SystemRole } from '@entities/actualEntities/systemRole.entity';
-import { User } from '@entities/actualEntities/user.entity';
 import BaseEntity from '@entities/base.entity';
+import { SystemRole } from '@entities/identity/systemRole.entity';
+import { User } from '@entities/identity/user.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 @ObjectType()
 @Entity({
   name: 'user_in_system_role',
+  schema: 'identity',
 })
 export class UserInSystemRole extends BaseEntity {
   @Field(() => User)

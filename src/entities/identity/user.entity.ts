@@ -1,9 +1,9 @@
-import { Cart } from '@entities/actualEntities/cart.entity';
-import { Person } from '@entities/actualEntities/person.entity';
-import { UserAlias } from '@entities/actualEntities/userAlias.entity';
-import { UserInSystemRole } from '@entities/actualEntities/userInSystemRole.entity';
-import { UserInWorkgroup } from '@entities/actualEntities/userInWorkgroup.entity';
 import BaseEntity from '@entities/base.entity';
+import { Person } from '@entities/identity/person.entity';
+import { UserAlias } from '@entities/identity/userAlias.entity';
+import { UserInSystemRole } from '@entities/identity/userInSystemRole.entity';
+import { UserInWorkgroup } from '@entities/organization/userInWorkgroup.entity';
+import { Cart } from '@entities/purchase/cart.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 
@@ -13,6 +13,7 @@ export type TUserInput = Omit<User, 'createdAt' | 'updatedAt'>;
 @ObjectType()
 @Entity({
   name: 'user',
+  schema: 'identity',
 })
 export class User extends BaseEntity {
   @Field(() => String)

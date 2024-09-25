@@ -1,13 +1,14 @@
-import { Role } from '@entities/actualEntities/role.entity';
-import { User } from '@entities/actualEntities/user.entity';
-import { Workgroup } from '@entities/actualEntities/workgroup.entity';
 import BaseEntity from '@entities/base.entity';
+import { User } from '@entities/identity/user.entity';
+import { Role } from '@entities/organization/role.entity';
+import { Workgroup } from '@entities/organization/workgroup.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 @ObjectType()
 @Entity({
   name: 'user_in_workgroup',
+  schema: 'organization',
 })
 export class UserInWorkgroup extends BaseEntity {
   @Field(() => Boolean)
@@ -41,5 +42,5 @@ export class UserInWorkgroup extends BaseEntity {
   @JoinColumn({
     name: 'role_id',
   })
-  declare role: Role;
+  declare role?: Role;
 }

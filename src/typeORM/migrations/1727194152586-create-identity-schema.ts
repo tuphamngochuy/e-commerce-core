@@ -1,11 +1,11 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class CreateIdSchema1727162598599 implements MigrationInterface {
+export class CreateIdentitySchema1727194152586 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.createSchema('id');
+    await queryRunner.createSchema('identity', true);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.dropSchema('id');
+    await queryRunner.dropSchema('identity', true);
   }
 }

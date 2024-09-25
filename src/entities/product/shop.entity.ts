@@ -1,13 +1,14 @@
-import { Category } from '@entities/actualEntities/category.entity';
-import { Product } from '@entities/actualEntities/product.entity';
-import { Workgroup } from '@entities/actualEntities/workgroup.entity';
 import BaseEntity from '@entities/base.entity';
+import { Workgroup } from '@entities/organization/workgroup.entity';
+import { Category } from '@entities/product/category.entity';
+import { Product } from '@entities/product/product.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 
 @ObjectType()
 @Entity({
   name: 'shop',
+  schema: 'product',
 })
 export class Shop extends BaseEntity {
   @Field(() => String)

@@ -1,5 +1,5 @@
-import { Cart } from '@entities/actualEntities/cart.entity';
 import BaseEntity from '@entities/base.entity';
+import { Cart } from '@entities/purchase/cart.entity';
 import { PaymentMethod } from '@enums/common';
 import { InvoiceStatus } from '@enums/status';
 import { Field, ObjectType } from 'type-graphql';
@@ -8,6 +8,7 @@ import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
 @ObjectType()
 @Entity({
   name: 'invoice',
+  schema: 'purchase',
 })
 export class Invoice extends BaseEntity {
   @Field(() => InvoiceStatus)

@@ -1,15 +1,16 @@
-import { User } from '@entities/actualEntities/user.entity';
 import BaseEntity from '@entities/base.entity';
+import { User } from '@entities/identity/user.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 @ObjectType()
 @Entity({
   name: 'user_alias',
+  schema: 'identity',
 })
 export class UserAlias extends BaseEntity {
   @Field(() => String)
-  @Column('text', { name: 'value' })
+  @Column('text', { name: 'value', unique: true })
   declare value: string;
 
   @Field(() => Boolean)

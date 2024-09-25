@@ -1,5 +1,5 @@
-import { UserInSystemRole } from '@entities/actualEntities/userInSystemRole.entity';
 import BaseUniqueNameEntity from '@entities/baseUniqueName.entity';
+import { UserInSystemRole } from '@entities/identity/userInSystemRole.entity';
 import { SystemRoleType } from '@enums/role';
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, OneToMany } from 'typeorm';
@@ -7,6 +7,7 @@ import { Column, Entity, OneToMany } from 'typeorm';
 @ObjectType()
 @Entity({
   name: 'system_role',
+  schema: 'identity',
 })
 export class SystemRole extends BaseUniqueNameEntity {
   @Field(() => SystemRoleType)

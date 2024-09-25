@@ -1,4 +1,4 @@
-import { User } from '@entities/actualEntities/user.entity';
+import { User } from '@entities/identity/user.entity';
 import ListOutput from '@services/common/output/listOutput';
 import { Field, ObjectType } from 'type-graphql';
 
