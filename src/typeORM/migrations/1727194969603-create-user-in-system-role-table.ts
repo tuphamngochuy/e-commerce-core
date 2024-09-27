@@ -7,6 +7,7 @@ export class CreateUserInSystemRoleTable1727194969603
     await queryRunner.createTable(
       new Table({
         name: 'user_in_system_role',
+        schema: 'identity',
         columns: [
           {
             name: 'user_id',
