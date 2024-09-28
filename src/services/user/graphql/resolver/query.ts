@@ -2,6 +2,7 @@ import { ListInput } from '@services/common/input/listInput';
 import { UserOutput } from '@services/user/graphql/outputs/usersOutput';
 import { userService } from '@services/user/service';
 import { Context } from 'src/graphQL/context/type';
+import { ResolverLog } from 'src/middleware/resolverLog';
 import { Arg, Ctx, Query, Resolver } from 'type-graphql';
 
 @Resolver()
@@ -12,6 +13,7 @@ export class UserQueryResolver {
   }
 
   @Query(() => UserOutput)
+  @ResolverLog()
   async users(
     @Arg('payload', () => ListInput, { nullable: true })
     payload: ListInput,
