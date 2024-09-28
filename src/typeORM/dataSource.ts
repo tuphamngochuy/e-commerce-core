@@ -13,4 +13,10 @@ export default new DataSource({
   migrations: ['src/typeORM/migrations/*.ts'],
   metadataTableName: 'metadata',
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
+  ssl:
+    process.env.SSL === 'true'
+      ? {
+          rejectUnauthorized: false,
+        }
+      : false,
 });
