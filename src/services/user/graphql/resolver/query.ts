@@ -17,6 +17,7 @@ export class UserQueryResolver {
     payload: ListInput,
     @Ctx() context: Context,
   ): Promise<UserOutput> {
+    context.logger;
     return userService.getUsers({ payload, context });
   }
 }
