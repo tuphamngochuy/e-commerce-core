@@ -10,5 +10,5 @@ export default new DataSource({
   synchronize: false,
   migrations: ['src/typeORM/migrations/*.ts'],
   metadataTableName: 'metadata',
-  entities: ['src/typeORM/entities/*/*.ts'],
+  entities: [__dirname + '/../**/*.entity.{js,ts}'],
 });
